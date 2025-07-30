@@ -1,0 +1,94 @@
+linux commands                                               ------------------ VOLUMES & STORAGE -------------------             ---------------permission---------------------             
+                                                                 
+                                                                      lsblk   [show volumes]                                         chmod u+rwx filename: Grants read write xut for user   
+/                                                                     df -h   [only mounted]                                  chmod g-w filename: Removes write permission from the group
+pwd                                                       file -s /dev/xvdb   [check file system]                                  chmod o+x filename: Adds execute permission for others
+cd                                                    mkfs -t xfs /dev/xvbd   [make file system]
+ls                                                   mount /dev/xvdb newdir/  [mount volume to dir]                                  Read = 4 write = 2 excute =1 
+ls-a                                                          cat /etc/mtab   [copy last entry]                                   chmod 755 filename → User: rwx, Group: r-x, Others: r-x
+ll                                                           vim /etc/fstab   [past hear]                                         chmod u+rwx,g+rx,o-w file.txt  [ combing in one line]
+free -h [ram]                                                                                                                  chmod u=r file.txt  # Set read-only permission for the user
+                                                                                                                     chown rohan file.txt [Here the file.txt will be assigned to the user rohan.]
+
+                                                              -------------  INCREASING VOLUME SIZE ------------                
+                                              
+----------VIM EDITOR ------------                                  yum install xfsprogs [package]   
+                                                                   
+mkdir [new folder name]                                             xfs_growfs -d /volume-Mountpoint      
+                                                                   xfs_growfs -d /home/ec2-user/newvolume  
+mkdir . [new folder hidden]
+
+touch [filename]                                             ------------------- USER & MANAGMENT ---------------
+
+rm myfile.txt                                                             useradd jrohan
+                                                                          userdel jrohan 
+                           
+                                                                          passwd  j@rohan 
+rmdir <DIR> [delet directory]                                      switch to user       su - username
+                                                                            id username [details]
+
+rm -rf <DIR> [directly deleting]                             *********  LOGIN TO USER WITH OUT PEM FILE *********      ssh username@<EC2-Public-IP>
+ 
+rm -r <DIR> [delet including sub folders]                                 vim /etc/ssh/sshd_config
+
+cp <FILE> <TARGET> [copying fil name]                                    PasswordAuthentication yes
+
+cp -R <DIR> <TARGET> [copying sub directory]                               systemctl restart sshd 
+                                                                                                                                                                                                                                                                                  
+mv <FILE> <TARGET> [moving files] [rename]                          usermod -aG wheel username [to use sudo permissions]
+                                                                           groups username [display group names] 
+                                                           
+cat filename [view file]                                   *************         END      *************************
+
+more filename [page by page]
+
+vim filename 
+i to enter                                                                                       ---------------apache web server ----------------------------
+esc to escape
+                                                                                                              yum install httpd -y
+:wq [to write and exit]                                                                                       service httpd start / status
+:q! [quit with out saving]                                                                                    chkconfig httpd on
+head [filename]                                                                                          vim /var/www/html/index.html
+tail [filename]
+
+head -n (number of lines) filename
+tail -n (number of lines) filename
+
+pr filename [print filename]
+sort filename [sorting in number] 
+
+:set number: Display line numbers in Vim.
+:set nonumber: Remove line numbers
+
+
+---------------VIM END----------------------
+   
+--------------- FOR ZIPPING INSTALL ZIP -------------------                                  -------------------------------IMPORTANT COMMANDS --------------------------------------------
+
+yum install zip -y                                                                                             vim /etc/httpd/config/httpd.config/     [TO CHANGE PORT NUMBER]
+                                                                                                           mkdir -p parent_directory/sub_directory     [ one line dir sub dir ]
+yum install unzip -y
+
+zip filename.txt [zip foldername]
+
+unzip archive.zip [ unzip foldername]
+
+zip -r newfolder.zip mydirectory [zipfilestoredname / folderurzipping]
+
+  -----------zip end-------------------------------------
+
+echo "This is a test" > file.txt [sending line to file.txt]
+
+echo "Adding another line" >> file.txt [not over write]
+
+grep "word" filename.txt []
+
+grep -i "word" filename.txt [case sensitive]
+
+grep "word" file1.txt file2.txt [for multiple files]
+
+grep -r "word" /path/to/directory [to find word in subdirectories]
+
+
+
+
