@@ -1,6 +1,6 @@
 linux commands                                               ------------------ VOLUMES & STORAGE -------------------             ---------------permission---------------------             
                                                           
-    hi                                                                  lsblk   [show volumes]                                         chmod u+rwx filename: Grants read write xut for user   
+    hi hello                                                                  lsblk   [show volumes]                                         chmod u+rwx filename: Grants read write xut for user   
 /                                                                     df -h   [only mounted]                                  chmod g-w filename: Removes write permission from the group
 pwd                                                       file -s /dev/xvdb   [check file system]                                  chmod o+x filename: Adds execute permission for others
 cd                                                    mkfs -t xfs /dev/xvbd   [make file system]
